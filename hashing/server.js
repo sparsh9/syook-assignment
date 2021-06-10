@@ -30,6 +30,7 @@ app.use('/person', personRoutes);
 
 const withTime = require('./services/njs-emitter');
 
+
 const uri = process.env.ATLAS_URI;
 const port = process.env.PORT || 8000;
 

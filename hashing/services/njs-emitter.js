@@ -51,18 +51,24 @@ function generateData(res) {
     //console.log(newData);
     newData.forEach(element => {
         hash = (encrypt(element.name + ' ' + element.origin + ' ' + element.destination + ' ' + element.secret_key))
-        //return hash
-         newHash = hash;
-        //console.log(hash)
-        //hash = newHash;
-      console.log(newHash)
-        //return newHash;
+        console.log(hash)
+        let text = decrypt(hash)
+        console.log(text)
+        text = {
+            name : element.name,
+            origin : element.origin,
+            destination : element.destination
+        }
+        console.log(text)
     });
 }
 
 
 
-njsEmitter.execute(getData, 'http://localhost:5000/person/show');
+setTimeout(function(){
+    njsEmitter.execute(getData, 'http://localhost:5000/person/show');
+},10000)
+// njsEmitter.execute(getData, 'http://localhost:5000/person/show');
 
 module.exports = {
     njsEmitter
